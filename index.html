@@ -3,11 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Calm Minds Therapy 🌱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .fun-fact-box {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(253, 203, 110, 0.3);
+            animation: gentle-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .fun-fact-box h3 {
+            color: #d63031;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .fun-fact-box p {
+            font-size: 1.1rem;
+            color: #2d3436;
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #fact-button {
+            background: linear-gradient(135deg, #ff7675, #d63031);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+        }
+
+        #fact-button:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(214, 48, 49, 0.5);
+        }
+
+        #fact-button:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My First Website!</h1>
-    <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>🌱 Calm Minds Therapy</h1>
+        <p>Your journey to peace starts here. We're here to listen, support, and help you thrive.</p>
+        <a href="#contact" class="cta-button">Book a Session</a>
+    </div>
+
+    <div class="fun-fact-box">
+        <h3>💡 Daily Mental Health Fun Fact</h3>
+        <p id="fun-fact">Click the button for a mental health boost!</p>
+        <button id="fact-button">Give me a fun fact! 🎉</button>
+    </div>
+
+    <div class="section" id="services">
+        <h2>How We Can Help</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="emoji">💬</div>
+                <h3>Talk Therapy</h3>
+                <p>Safe space to express yourself and work through challenges.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">🧘</div>
+                <h3>Mindfulness</h3>
+                <p>Learn techniques to stay present and reduce anxiety.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">💪</div>
+                <h3>Life Coaching</h3>
+                <p>Set goals, build confidence, and create positive change.</p>
+            </div>
+            <div class="service-card">
+                <div class="emoji">❤️</div>
+                <h3>Self-Care Plans</h3>
+                <p>Personalized strategies for better mental health.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <h2>About Us</h2>
+        <p style="text-align: center; font-size: 1.1rem; color: #555;">
+            We believe everyone deserves support on their mental health journey. Our team of licensed therapists 
+            creates a warm, judgment-free environment where you can explore your thoughts and feelings. 
+            Whether you're dealing with stress, anxiety, life transitions, or just need someone to talk to — we're here for you. 🌈
+        </p>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Tell us a bit about what's on your mind..." required></textarea>
+            <button type="submit">Send Message ✨</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>🌸 Calm Minds Therapy - Because you matter 🌸</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Your mental health is our priority</p>
+    </footer>
+
+    <script>
+        const funFacts = [
+            "🌟 Smiling, even when you don't feel like it, can trick your brain into feeling happier!",
+            "🎵 Listening to music can reduce anxiety and improve your mood instantly.",
+            "🚶 A 10-minute walk can boost your mental energy more than a cup of coffee!",
+            "🤗 Hugging releases oxytocin, the 'love hormone' that reduces stress.",
+            "🌳 Spending just 20 minutes in nature can significantly lower stress hormones.",
+            "😂 Laughing for 10-15 minutes can burn up to 40 calories and boost your mood!",
+            "🧠 Your brain uses 20% of your body's oxygen - deep breathing really helps!",
+            "☀️ Sunlight boosts serotonin levels, which helps you feel calm and focused.",
+            "📝 Writing down 3 things you're grateful for daily can rewire your brain for happiness.",
+            "🐾 Petting a dog for just 15 minutes releases feel-good hormones in your brain!",
+            "💤 Your brain processes emotions during sleep - rest is essential for mental health!",
+            "🎨 Creative activities like drawing or coloring can reduce anxiety by 75%!"
+        ];
+
+        const factButton = document.getElementById('fact-button');
+        const factText = document.getElementById('fun-fact');
+
+        factButton.addEventListener('click', () => {
+            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            factText.style.opacity = '0';
+            
+            setTimeout(() => {
+                factText.textContent = randomFact;
+                factText.style.transition = 'opacity 0.5s';
+                factText.style.opacity = '1';
+            }, 200);
+        });
+    </script>
 </body>
 </html>
